@@ -2,8 +2,16 @@ from threading import Lock
 
 class BankAccount:
     def __init__(self):
-        self._closed = True
+        self.close()
         self._lock = Lock()
+
+    # @property
+    # def balance(self):
+    #     return self._balance
+    #
+    # @property
+    # def closed(self):
+    #     return self._closed
 
     def get_balance(self):
         if not self._closed:
@@ -43,7 +51,7 @@ class BankAccount:
         self._lock.release()
 
     def close(self):
-        if not self._closed:
+        if not hasattr(self, "_closed") or not self._closed:
             self._closed = True
         else:
             raise ValueError("The account is not opened")
