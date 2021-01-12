@@ -1,36 +1,18 @@
+lyrics = """
+On the first day of Christmas my true love gave to me: a Partridge in a Pear Tree.
+On the second day of Christmas my true love gave to me: two Turtle Doves, and a Partridge in a Pear Tree.
+On the third day of Christmas my true love gave to me: three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
+On the fourth day of Christmas my true love gave to me: four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
+On the fifth day of Christmas my true love gave to me: five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
+On the sixth day of Christmas my true love gave to me: six Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
+On the seventh day of Christmas my true love gave to me: seven Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
+On the eighth day of Christmas my true love gave to me: eight Maids-a-Milking, seven Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
+On the ninth day of Christmas my true love gave to me: nine Ladies Dancing, eight Maids-a-Milking, seven Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
+On the tenth day of Christmas my true love gave to me: ten Lords-a-Leaping, nine Ladies Dancing, eight Maids-a-Milking, seven Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
+On the eleventh day of Christmas my true love gave to me: eleven Pipers Piping, ten Lords-a-Leaping, nine Ladies Dancing, eight Maids-a-Milking, seven Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
+On the twelfth day of Christmas my true love gave to me: twelve Drummers Drumming, eleven Pipers Piping, ten Lords-a-Leaping, nine Ladies Dancing, eight Maids-a-Milking, seven Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
+"""
+
 def recite(start_verse, end_verse):
-    # Incomplete and wrong solution
-    ordinal_list = [
-        "first",
-        "second",
-        "third",
-        "fourth",
-        "fifth",
-        "sixth",
-        "seventh",
-        "eighth",
-        "ninth",
-        "tenth",
-        "eleventh",
-        "twelfth"
-    ]
-    gift_list = [
-        "a Partridge in a Pear Tree.",
-        "two Turtle Doves, ",
-        "three French Hens, ",
-        "four Calling Birds, ",
-        "five Gold Rings, ",
-        "six Geese-a-Laying, ",
-        "seven Swans-a-Swimming, ",
-        "eight Maids-a-Milking, ",
-        "nine Ladies Dancing, ",
-        "ten Lords-a-Leaping, ",
-        "eleven Pipers Piping, ",
-        "twelve Drummers Drumming, "
-    ]
-    first_half_verse = [f"On the {ordinal_list[start_verse - 1]} day of Christmas my true love gave to me: "]
-    other_half_verse = [gift for gift in reversed(gift_list[:end_verse])]
-    if end_verse > 1:
-        other_half_verse[-1] = "and " + other_half_verse[-1]
-    all_verse = "".join(first_half_verse + other_half_verse)
-    return [all_verse]
+    # Starred solution: https://exercism.io/tracks/python/exercises/twelve-days/solutions/ffeb74b0d63d4beba6b4d2bf3adb2d6a
+    return lyrics.strip().splitlines()[start_verse-1:end_verse]
